@@ -2,27 +2,30 @@
  *  *bottomTabArrOne.length来循环
  * **/
 var bottomTabArrOne = [
-	"images/home-icon-1@2x.png",
-	"images/wallet-icon-1@2x.png",
-	"images/user-icon-1@2x.png"
+	"img/bottomNav/20181119_11.png",
+	"img/bottomNav/20181119_21.png",
+	"img/bottomNav/20181119_31.png",
+	"img/bottomNav/20181119_41.png",
 ];
 /*底部nav切换(已-点击)_按循序*/
 var bottomTabArrTwo = [
-	"images/home-icon-2@2x.png",
-	"images/wallet-icon-2@2x .png",
-	"images/user-icon-2@2x.png"
+	"img/bottomNav/20181119_12.png",
+	"img/bottomNav/20181119_22.png",
+	"img/bottomNav/20181119_32.png",
+	"img/bottomNav/20181119_42.png",
 ];
 /*底部nav-点击url路径_按循序*/
 var buttonNavUrl = [
-	"'./index.html'",
-	"'./wallet.html'",
-	"'./user.html'",
+	"'./App底部导航.html'",
+	"'./2.html'",
+	"''",
 	"''",
 ];
 /*底部nav-title_按循序*/
 var buttonNavTitle = [
 	"首页",
-	"钱包",
+	"积分商城",
+	"兑换商城",
 	"我的"
 ];
 
