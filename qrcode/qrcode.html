@@ -1,18 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
-<head>
-<title>Cross-Browser QRCode generator for Javascript</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<script type="text/javascript" src="../js/public/jquery-1.8.3.min.js"></script>
-<script src="../js/public/rem.js"></script>
-<script type="text/javascript" src="qrcode.js"></script>		
-		
+
+	<head>
+		<title>分享</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<script src="../js/public/rem.js"></script>
+		<link rel="stylesheet" href="../css/public/base.css">
+		<link rel="stylesheet" href="../css/public/reset.css">
 		
 		<style>
 			* {
-				margin: 0;
-				padding: 0;
 				/*防止-滑动报错*/
 				touch-action: pan-y;
 				-ms-touch-action: pan-y;
@@ -25,11 +23,10 @@
 			.bottmBut {
 				width: 2rem;
 				height: .8rem;
-				font: .26rem/.8rem "微软雅黑";
+				font: .26rem/.8rem "PingFangMedium";
 				text-align: center;
 				background-color: #fff;
 			}
-			
 			/*底部弹窗 wrap*/
 			.bottomAlertWrap {
 				display: none;
@@ -37,338 +34,219 @@
 				bottom: 0;
 				left: 0;
 				width: 7.5rem;
-				/*height: 4.85rem;*/
 				height: 100%;
 				z-index: 103;
-				/*#5f6063*/
-				background: rgba(95,96,99,.7);
+				background: rgba(0, 0, 0, .5);
 			}
 			/*底部弹窗 box */
 			.bottomAlertBox {
 				position: absolute;
 				bottom: -4.88rem;
-				/*bottom: 0;*/
 				left: 0;
 				width: 7.5rem;
-				/*height: 4.88rem;*/
 				height: auto;
-				background-color: #fff;
-			}
-			.bottomAlertBox{
-				
 				border-radius: .06rem;
+				background-color: #fff;
 				
-			}
-			/*底部弹窗 box=>title*/
-			.bottomAlertTitle {
-				box-sizing: border-box;
-				width: 7.5rem;
-				height: .92rem;
-				color: #333;
-				text-align: center;
-				font: .32rem/.9rem "微软雅黑";
-				border-bottom: .02rem solid #e5e5e5;
-				background-color: #fbfafa;
 			}
 			/*底部弹窗 box=> 内容*/
 			.BAlertContent {
-				padding-left: .3rem;
-				box-sizing: border-box;
-				width: 7.5rem;
-				height: auto;	
-				
+				width: 100%;
+				height: auto;
+				background-color: #ccc;
 			}
 			/*底部弹窗 box=> 项*/
 			.BACTerm {
 				position: relative;
 				box-sizing: border-box;
-				width: 7.2rem;
-				height: .8rem;	
-				font: .3rem/1.3rem "微软雅黑";
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				width: 100%;
+				height: .8rem;
+				font: .3rem/.8rem "PingFangMedium";
 				color: #333;
-				/*border-bottom: .02rem solid #e5e5e5;*/
+				text-align: center;
+				letter-spacing: .02rem;
+				border-bottom: .01rem solid #ccc;
+				background-color: #fff;
 			}
 			/*（兄弟元素）最后一项，没有底部线*/
 			.BACTerm:last-child {
 				border-bottom: none;
 			}
-			/*图标 box*/
-			.BACTermIconBox {
-				float: left;
+			/*背景图片*/
+			#pic {
+				width: 5rem;
+				height: 5rem;
 				position: relative;
-				width: .79rem;
-				height: 1.3rem;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, 50%);
+				border-radius: .6rem;
+				
 			}
-			/*图标 */
-			.BACTermIcon{
-				display: block;
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				margin: auto 0;
-			}
-			/*支付方式*/
-			.paymentMethod {
-				float: left;
-				width: 6.41rem;
+			
+			.close {
+				border: 1px solid #EEEEEE;
+				width: 2rem;
 				height: .8rem;
 				line-height: .8rem;
-			}
-			/*（是否）选中*/
-			.selectImage {
-				display: none;
+				display: inline-block;
+				text-align: center;
 				position: absolute;
-				top: 0;
-				right: .3rem;
-				bottom: 0;
-				margin: auto 0;
-				width: .24rem;
-				height: .2rem;
+				left: 50%;
+				right: 50%;
+				transform: translate(-50%, -20%);
+				border-radius: .06rem;
 			}
-			/*字体库*/
-   @font-face{
-	font-family: 'PingFangMedium';
-	src: url("../../font/PingFangMedium.ttf")
-          }
-	*{
-		margin: 0px;
-		padding: 0px;
-		
-	}
-	
-	#pic{
-		
-	 width: 5rem;
-	 height: 5rem;
-	 position: relative;
-	 top: 50%;
-	 left: 50%;
-	 transform: translate(-50%,0%);
-	 /*background: url("../img/qrcode/1.jpg");*/
-	 background-image:url("");
-			
-	}
-	.header{
-		
-		width: 100%;
-		height: .8rem;
-		font-size: .4rem;
-		border-bottom: 2px solid #EEEEEE;
-		position: relative;
-	   		
-	}
-	.header span:nth-child(1){
-		
-		display: inline-block;
-        width: 10%;
-        height: .8rem;
-        line-height: .8rem;	
-        text-align: center;	
-        position: absolute;
-        top: -.08rem;
-      
-		
-	}
-	.header span:nth-child(2){
-		
-		display: inline-block;
-        width: 80%;
-        height: .8rem;
-        line-height: .8rem;	
-        text-align: center;	
-        position: absolute;
-        top: -.08rem;
-        left: .48rem;
-	}
-	.header span:nth-child(3){
-		
-		display: inline-block;
-        width: 7%;
-        height: .8rem;
-        text-align: center;
-        position: absolute;
-        top: -.08rem;
-        left: 6.8rem;
-        cursor: pointer;
-	}
-	.close{
-		
-		border: 1px solid #EEEEEE;
-		width: 2rem;
-		height: .8rem;
-		line-height: .8rem;
-		display: inline-block;
-		text-align: center;
-		position: absolute;
-		left: 50%;
-		right: 50%;
-		transform: translate(-50%,-20%);
-		border-radius: .06rem;
-		
-		
-		
-		
-		
-	}
+			.cancelYF {
+				margin-top: .06rem;
+			}
 		</style>
 	</head>
+
 	<body style="position: relative;">
 		<div class="wrap">
+<<<<<<< HEAD
 			
 				<div class="header">
 	              <span><</span><span>分享</span><span class="bottmBut">...</span>
                </div>		
 			<input id="text" type="text" value="http://jindo.dev.naver.com/collie" style="width:80%;display: none;" /><br />
 			
+=======
+			<!-- 头部 -->
+	        <div class="header-zp">
+	            <span class="return" onclick="returnFun()"><img src="../image/public/return-zp@2x.png" /></span>
+	            <h3>分享</h3>
+	           <!--<span class="bottmBut">...</span>-->
+	        </div>
+			<input id="text" type="text" value="http://jindo.dev.naver.com/collie" style="width:80%;" hidden /><br />
+
+>>>>>>> 976cb0f55746b66b3e04eee80313adc6e22f5af8
 			<div id="pic">
-            <div id="qrcode" style="width:150px; height:150px; margin-top:15px;position: absolute;top: 50%;left: 50%;transform: translate(-40%,-50%);"></div>
-            </div>
-			
-			
+				<div id="qrcode" style="width:150px; height:150px; margin-top:15px;position: absolute;top: 50%;left: 50%;transform: translate(-40%,-50%);"></div>
+			</div>
+
 		</div>
 		<!--底部弹窗（蒙版）body-->
 		<div class="bottomAlertWrap">
 			<!--底部弹窗（框）-->
 			<div class="bottomAlertBox">
-				<!--标题-->
-				<!--<p class="bottomAlertTitle">选择付款方式</p>-->
 				<!--内容-->
 				<div class="BAlertContent">
-					<div class="BACTerm">
-						<span class="paymentMethod" alt="0">换个样式</span>
-					</div>
-					<div class="BACTerm">
-						<!--icon-->
-						<span class="paymentMethod" alt="1">保存到手机</span>
-						<!--（是否）选中-->
-					</div>
-					<div class="BACTerm">
-						<!--icon-->
-						<span class="paymentMethod" alt="2">扫描二维码</span>
-						<!--（是否）选中-->
-					</div>
-					<div class="BACTerm">
-						<!--icon-->
-						<span class="paymentMethod" alt="3">重置二维码</span>
-						<!--（是否）选中-->
-					</div>
-					<div class="BACTerm">
-						<!--icon-->
-						<span class="close" alt="4">关闭</span>
-						<!--（是否）选中-->
-					</div>
-					
+					<p class="BACTerm" alt="0">换个样式</p>
+					<p class="BACTerm" alt="1">保存到手机</p>
+					<p class="BACTerm cancelYF" alt="2">取消</p>
 				</div>
 			</div>
-			
+
 		</div>
-		
-		
-		
+
+
+
+		<script src="../js/public/jquery-1.8.3.min.js"></script>
+		<script src="qrcode.js"></script>
 		<!--蒙版出现=> 底部（box）不能滑动-->
 		<script>
-		
-			
-			 $(document).ready(function(){
-//            var random_bg=parseInt(3*Math.random());
-              var bg='url(../image/qrcode/'+"1"+'.jpg)';
-               $("#pic").css("background-image",bg);
-                  });
-      
+			$(document).ready(function() {
+				//var random_bg=parseInt(3*Math.random());
+				var bg = 'url(../image/qrcode/' + "1" + '.jpg)';
+				$("#pic").css("background-image", bg);
+			});
+
 			//实现滚动条无法滚动
-			var mo=function(e){e.preventDefault();};
-			
+			var mo = function(e) {
+				e.preventDefault();
+			};
+
 			/***禁止滑动***/
-			function stop(){
-			        document.body.style.overflow='hidden';        
-			        document.addEventListener("touchmove",mo,false);//禁止页面滑动
+			function stop() {
+				document.body.style.overflow = 'hidden';
+				document.addEventListener("touchmove", mo, false); //禁止页面滑动
 			}
-			
+
 			/***取消滑动限制***/
-			function move(){
-			        document.body.style.overflow='';//出现滚动条
-			        document.removeEventListener("touchmove",mo,false);        
+			function move() {
+				document.body.style.overflow = ''; //出现滚动条
+				document.removeEventListener("touchmove", mo, false);
 			}
 			var qrcode = new QRCode(document.getElementById("qrcode"), {
-	          width : 125,
-	          height : 125
-              });
+				width: 125,
+				height: 125
+			});
 
-			         function makeCode () {		
+			function makeCode() {
 				var elText = document.getElementById("text");
-				
-				if (!elText.value) {
+
+				if(!elText.value) {
 					alert("Input a text");
 					elText.focus();
 					return;
 				}
-				
+
 				qrcode.makeCode(elText.value);
 			}
-			
+
 			makeCode();
-			
+
 			$("#text").
-				on("blur", function () {
+			on("blur", function() {
+				makeCode();
+			}).
+			on("keydown", function(e) {
+				if(e.keyCode == 13) {
 					makeCode();
-				}).
-				on("keydown", function (e) {
-					if (e.keyCode == 13) {
-						makeCode();
-					}
-				});
+				}
+			});
 		</script>
 		<!--本页面js-->
 		<script>
-			$(function(){
+			$(function() {
 				/**
 				 * 全局变量
 				 * **/
 				/*获取支付方式（后台）*/
 				var methodD = null;
 				/*点击出现-底部弹窗*/
-				$('.bottmBut').on('click',function(){
+				$('.bottmBut').on('click', function() {
 					$('.bottomAlertWrap').show();
 					/*底部弹窗(出现)*/
-					$('.bottomAlertBox').animate({'bottom':'0'});
+					$('.bottomAlertBox').animate({
+						'bottom': '0'
+					});
 					/*底部页面-不可以滑动*/
 					stop();
 				})
 				/*关闭遮罩层*/
-				$('.bottomAlertWrap').on('click',function(){
+				$('.bottomAlertWrap').on('click', function() {
 					$('.bottomAlertWrap').hide();
 					/*底部弹窗(隐藏)*/
-					$('.bottomAlertBox').animate({'bottom':-($('.bottomAlertBox').height())});
+					$('.bottomAlertBox').animate({
+						'bottom': -($('.bottomAlertBox').height())
+					});
 					/*底部页面-可以滑动*/
 					move();
 				})
-				/*选择-支付方式*/
-				$('.BACTerm').on('click',function(){
-					/*获取支付方式*/
-					methodD = $(this).find('.paymentMethod').attr('alt');
+				/*选择-对应项*/
+				$('.BACTerm').on('click', function() {
+					/*获取对应项的值*/
+					methodD = $(this).attr('alt');
 					/*全部=>隐藏*/
 					$('.selectImage').hide();
 					/*当前=>显示*/
 					$('.selectImage').eq($(this).index()).show();
 					console.log(methodD);
 					/*利用 冒泡事件(不能使用 return false;)=> 关闭蒙版*/
-					if(methodD == 0){
-//						../img/qrcode/1.jpg
+					if(methodD == 0) {
 						//切换背景代码
-						var random_bg=parseInt(7*Math.random());
-                        var bg='url(../image/qrcode/'+random_bg+'.jpg)';
-                        $("#pic").css("background-image",bg);
-					
-					}else if(methodD == 1){
-						alert('选择支付方式: 支付宝');
-					}else if(methodD == 2){
-						alert('选择支付方式: 微信');						
-					}	
-                 
-//					console.log('选择后','丢给后台的数据',methodD);
+						var random_bg = parseInt(7 * Math.random());
+						var bg = 'url(../image/qrcode/' + random_bg + '.jpg)';
+						$("#pic").css("background-image", bg);
+					} 
 				})
-//				console.log('初始化','丢给后台的数据',methodD);
 			})
 		</script>
 	</body>
+
 </html>
