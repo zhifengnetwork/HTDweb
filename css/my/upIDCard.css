@@ -154,11 +154,11 @@
 }
 .acc_sc{
 	position: relative;
-	height: 0.5rem;
+	height: 0.6rem;
 	margin: 0.1rem 0;
 	background-color: #f7f7f7;
 	text-align: center;
-	line-height: 0.5rem;
+	line-height: 0.6rem;
 	border-radius: 0.09rem;
 }
 #sss{width: 100%;height: 5rem;background: #fff;position: relative;border-radius: 0.09rem;}
