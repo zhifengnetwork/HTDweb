@@ -6,128 +6,71 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册</title>
     <link rel="stylesheet" href="../css/public/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/public/base.css"/>
     <link rel="stylesheet" href="../css/user/register.css">
     <script src="../js/public/rem.js"></script>
 </head>
 <body>
         <div class="registerbox">
             <!-- 头部 -->
-            <div class="headerbox">
+            <!-- <div class="headerbox">
                 <img src="../image/user/left.png" alt="" class="goback" data-num="1" onclick="returnFun()">
                 <p class="headertitle">注册</p>
+            </div> -->
+            <div class="header-zp">
+                <span class="return" onclick="javascript:history.back(-1)">
+                    <img src="../../image/public/return-zp@2x.png" /></span>
+                <h3>注册</h3>
             </div>
             <div class="reg-new-page">
                 <form action="" class="reg-from">
-                        <span class="info"></span>
+                        <div class="info mistake"></div>
                       <div class="from-group">
                           <span class="from-tit">用户名:</span>
                           <input type="text" placeholder="请输入用户名" name="name" value class="pptt username " >
                       </div>
-                      <span class="info mistake"></span>
+                      <div class="info mistake"></div>
                       <div class="from-group">
                             <span class="from-tit">密码:</span>
                             <input type="password"  placeholder="请输入用户密码" name="pwd"value class="pptt password">
                         </div>
-                        <span class="info mistake"></span>
+                        <div class="info mistake"></div>
                         <div class="from-group">
                          <span class="from-tit">邮箱:</span>
                           <input type="text"  placeholder="请输入用户邮箱" name="email"value class="pptt email">
                     </div>
-                    <span class="info mistake"></span>
+                    <div class="info mistake"></div>
                     <div class="from-group">
                             <span class="from-tit">手机号:</span>
                              <input type="phone" placeholder="请输入手机号码" name="phone" class="pptt phone">
                    </div>
-                   <div class="from-group">
-                        <span class="from-tit">*直推人用户名:</span>
+                   <div class="from-group policy">
+                        <span class="from-cc">*直推人用户名:</span>
                          <input type="text"  placeholder="直推人用户名"name="DirectName" value class="pptt">
                    </div>
-                   <span class="info mistake"></span>
-                   <div class="from-group">
-                        <span class="from-tit">验证码:</span>
-                         <input type="text"  placeholder="请输入验证码" value  name="verify"class="pptt">
+                   <div class="send-code mistake info"></div>
+                   <div class="from-group ">
+                         <span class="from-tit">验证码:</span>
+                         <input type="text"  placeholder="请输入验证码" value  name="verify"class="pptt verify">
                          <button class="send-code" type="button">获取验证码</button>
                    </div>
                    <div class="from-group policy">
-                        <span class="from-tit acc">是否同意政策</span>
+                        <span class="from-cc acc">是否同意政策</span>
                             <i class=" icon "></i>
+                        <span class="info "></span>
                    </div>
                    <div class="reg-btn">
                        <button type="button" class="btn dis">注册</button>
                    </div>
                 </form>
+                <div class="login-new">
+                        <a href="./login.html" class="register">已有账号 登录</a>
+                        <a href="">用户协议</a>
+                    </div>   
             </div>
         </div>
 </body>
  <script src="../js/public/jquery-1.8.3.min.js"></script>
- <script>
-  $(function(){
-    var name = /^[a-zA-Z0-9_-]{4,16}$/; /*用户名*/
-    var password = /^[\w_-]{6,16}$/;  /*用户密码*/
-    // var email = /^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$/   /*用户邮箱*/
-    var email= /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
-    var phone = /^1[34578]\d{9}$/;  /*用户手机号*/
-    // 用户名
-     $(".username").blur(function(){
-        
-        reg($(this),name,"用户名")
-     })
-    //  手机
-     $(".phone").blur(function(){
-        reg($(this),phone,"手机")
-     })
-     // 密码
-     $(".password").blur(function(){
-        reg($(this),password,"密码")
-     })
-     //邮箱
-     $(".email").blur(function(){
-        reg($(this),email,"邮箱")
-     })
-     function reg(reg,abb,bb){
-        if(reg.val()==""){
-            reg.parent().prev().addClass("mistake").html(`${bb}不能为空`)
-        }else if(!abb.test(reg.val())){
-            reg.parent().prev().addClass("mistake").html(`${bb}格式错误`)
-        }else{
-            reg.parent().prev().removeClass("mistake").html("") 
-        }
-     }
-    $(".icon").click(function(){
-        $(this).toggleClass("active")
-        if($(this).hasClass("active")){
-            $(".btn").removeClass("dis")
-        }else{
-            $(".btn").addClass("dis")
-        }
-    })
-
-    $(".send-code").click(function(){
-        daojishi(60,$(this))
-    })
-    function daojishi(seconds,obj){
-        if (seconds > 1){
-                seconds--;
-                $(obj).html(seconds+"秒后重新获取 ").attr("disabled", true);
-                setTimeout(function(){
-                    daojishi(seconds,obj);
-                },1000);
-            }else{
-                $(obj).html("获取验证码").attr("disabled", false);//启用按
-            }
-    }
-    // 返回上一页
-    function returnFun(){
-	/*返回上一页*/
-	if($('.headWrap_lb .returnBut_lb').attr('data-num') == 1 || $('.headWrap_lb .returnBut_lb').attr('data-num') == undefined ){
-		window.history.back();
-		console.log("返回上一页");
-	}else {
-		/*页面跳转*/
-		window.location.href = $('.headWrap_lb .returnBut_lb').attr('data-num');
-	}
-	return false;
-}
-  })
+ <script src="../js/user/register.js">
  </script>
 </html>
