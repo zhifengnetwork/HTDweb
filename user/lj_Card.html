@@ -59,24 +59,24 @@
 
 		<script>
 			$(function() {
-				$(window).on("load", function() {
-					$("#loading").fadeOut();
-				})
-				$("#tip .pack a").on("click", function() {
-					$("#tip").fadeOut()
-					$("#tip .pack p").html("")
-					return false;
-				})
+				// $(window).on("load", function() {
+				// 	$("#loading").fadeOut();
+				// })
+				// $("#tip .pack a").on("click", function() {
+				// 	$("#tip").fadeOut()
+				// 	$("#tip .pack p").html("")
+				// 	return false;
+				// })
 
-				function alerths(str) {
-					$("#tip").fadeIn()
-					$("#tip .pack p").html(str)
-					return false;
-				}
-				$(".acc_sure").on("click", function() {
-					alerths("请等待审核！")
-					return false;
-				})
+				// function alerths(str) {
+				// 	$("#tip").fadeIn()
+				// 	$("#tip .pack p").html(str)
+				// 	return false;
+				// }
+				// $(".acc_sure").on("click", function() {
+				// 	alerths("请等待审核！")
+				// 	return false;
+				// })
 				$("#file0").change(function() {
 					if(this.files && this.files[0]) {
 						var objUrl = getObjectURL(this.files[0]);
