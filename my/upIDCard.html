@@ -25,11 +25,14 @@
 					<div class="acc_img">
 						<p class="tc">身份证正面</p>
 						<div id="sss">
-							<img class="acc_imgin" src="../image/home/acc_img.png" id="img0">
+							<!--<img class="acc_imgin" src="../image/home/acc_img.png" id="img0">-->
+							<img class="acc_imgin preViewImg" src="../image/home/acc_img.png" id="img0"/>
 						</div>
 						<div class="acc_sc">
 							<a href="javascript:;" class="tc acc_scicon">选择图片</a>
-							<input type="file" name="file0" id="file0" multiple class="ph08" />
+							<!--上传图片 tyle='file'-->
+							<input class="ph08" type="file" onchange="UpLoad(this)" name="file" id="file0" value="" accept="image/*" hidden />
+							<!--<input type="file" name="file0" id="file0" class="ph08" accept="image/*" />-->
 						</div>
 						<!--<p class="ph09 ">注：身份证上的所有信息清晰可见，必须能看清证件号。照片需免冠，建议未化妆。手持证件人的五官清晰可见。照片内容真实有效。不得做任何修改。支持jpg、jpeg、bmp、gif格式照片。大小不超过5M</p>-->
 					</div>
@@ -42,7 +45,7 @@
 						</div>
 						<div class="acc_sc">
 							<a href="javascript:;" class="tc acc_scicon">选择图片</a>
-							<input type="file" name="file0" id="file1" multiple class="ph08" />
+							<input type="file" name="file0" id="file1" class="ph08" accept="image/*" />
 						</div>
 						<!--<p class="ph09 ">注：身份证上的所有信息清晰可见，必须能看清证件号。照片需免冠，建议未化妆。手持证件人的五官清晰可见。照片内容真实有效。不得做任何修改。支持jpg、jpeg、bmp、gif格式照片。大小不超过5M</p>-->
 					</div>
@@ -56,27 +59,100 @@
 
 		<script src="../js/public/jquery-1.8.3.min.js"></script>
 		<script src="../js/public/base.js"></script>
-		
+		<!--000-->
 		<script>
+			/*上传图片 按钮  */
+			function uploadImgBut(_index){
+//				ind = _index;
+//				/* 关联 '选择上传文件'的按钮 */
+//				$(".uploadFile").eq(_index).trigger("click");
+				return false;
+			}
+			
+			/*上传图片*/
+			function  UpLoad(e) { 
+				console.log(9999)
+				if(e.files[0]){
+				    var f = e.files[0];  
+				    fileType = f.type;  
+				    if(/image\/\w+/.test(fileType)) {  
+				        var fileReader = new FileReader();  
+				        fileReader.readAsDataURL(f);  
+				        fileReader.onload = function(event) {  
+				            var result = event.target.result; //返回的dataURL   
+				            var image = new Image();  
+				            image.src = result;  
+				            //若图片大小大于1M，压缩后再上传，否则直接上传  
+				            if(f.size>1024*1024){     
+				                    image.onload = function() { 
+				                    //创建一个image对象，给canvas绘制使用
+				                    var canvas = document.getElementById("canvas"); 
+				                    canvas.width = image.width;  
+				                    canvas.height = image.height; //计算等比缩小后图片宽高   
+				                    var ctx = canvas.getContext('2d');  
+				                    ctx.drawImage(this, 0, 0, canvas.width, canvas.height);  
+				                    var newImageData = canvas.toDataURL(fileType, 0.8); //重新生成图片
+	//			                       	sendData = newImageData.replace("data:"+fileType+";base64,",'');                  
+	//			                    dataLength = decodeBase64(sendData).length;//base64位图片长度（这里没有写这个方法）                 
+	//			                    $("#imgUrl").val(sendData);
+	//			                    console.log(sendData);
+				                    /*根据点击的下标 => 图片 回显*/
+				                    $(".preViewImg").eq(ind).attr("src",newImageData); 
+				                    console.log(newImageData);
+				                     
+				                    $("#canvas").hide();
+				                    /*根据点击的下标 =>显示 '回显图片'*/
+				                    $(".echoImages").eq(ind).show();
+				                }  
+				            }else{  
+				            	//创建一个image对象，给canvas绘制使用 
+				                image.onload = function() { 
+	//				                sendData = result.replace("data:"+fileType+";base64,",'');  
+	//				                console.log(sendData);
+	//				                dataLength = decodeBase64(sendData).length;  
+	
+	//								console.log(result);
+									/* 根据点击的下标 => 图片 回显 */
+					                $(".preViewImg").eq(ind).attr("src",result);  
+	//				                $("#imgUrl").val(sendData); 
+					                /*根据点击的下标 =>显示 '回显图片'*/
+					                $(".echoImages").eq(ind).show();
+					                console.log(result);
+				            	}  
+				            }  
+				        }  
+				    } else {  
+				        alert("请选择图片");  
+				    }  
+				    
+			    }else {
+			    	console.log('取消选择图片！')
+			    }
+			}  
+		</script>
+		<!--000-->
+		<script>
+			
 			$(function() {
-				$(window).on("load", function() {
-					$("#loading").fadeOut();
-				})
-				$("#tip .pack a").on("click", function() {
-					$("#tip").fadeOut()
-					$("#tip .pack p").html("")
-					return false;
-				})
+//				$(window).on("load", function() {
+//					$("#loading").fadeOut();
+//				})
+//				$("#tip .pack a").on("click", function() {
+//					$("#tip").fadeOut()
+//					$("#tip .pack p").html("")
+//					return false;
+//				})
 
-				function alerths(str) {
-					$("#tip").fadeIn()
-					$("#tip .pack p").html(str)
-					return false;
-				}
-				$(".acc_sure").on("click", function() {
-					alerths("请等待审核！")
-					return false;
-				})
+//				function alerths(str) {
+//					$("#tip").fadeIn()
+//					$("#tip .pack p").html(str)
+//					return false;
+//				}
+//				$(".acc_sure").on("click", function() {
+//					alerths("请等待审核！")
+//					return false;
+//				})
+				/*文件上传1*/
 				$("#file0").change(function() {
 					if(this.files && this.files[0]) {
 						var objUrl = getObjectURL(this.files[0]);
@@ -85,6 +161,7 @@
 							$("#img0").attr("src", objUrl);
 							$("#file0").click(function(e) {
 								$("#img0").attr("src", objUrl);
+								console.log(999,objUrl);
 							});
 						} else {
 							this.select();
@@ -100,7 +177,7 @@
 						}
 					}
 				});
-
+				/*文件上传1*/
 				$("#file1").change(function() {
 					if(this.files && this.files[0]) {
 						var objUrl = getObjectURL(this.files[0]);
