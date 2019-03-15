@@ -62,7 +62,8 @@
 	text-align: center;
 	border-top: 1px solid #d6d6d6;
 }
-
+.lj_szmm_a{width: 80%;margin: 0 auto;margin-bottom: 1rem;}
+.lj_szmm_a a{background: #f5f5f5;color: #000;padding: 0.2rem 0;text-align: center;border-radius: 0.1rem;display: block;}
 
 /*登录界面*/
 .acc_login ul li h2{
@@ -153,11 +154,11 @@
 }
 .acc_sc{
 	position: relative;
-	height: 0.8rem;
+	height: 0.5rem;
 	margin: 0.1rem 0;
 	background-color: #f7f7f7;
 	text-align: center;
-	line-height: 0.8rem;
+	line-height: 0.5rem;
 	border-radius: 0.09rem;
 }
 #sss{width: 100%;height: 5rem;background: #fff;position: relative;border-radius: 0.09rem;}
