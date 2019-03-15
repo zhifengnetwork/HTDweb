@@ -10,7 +10,7 @@
 }
 body {
 	width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 	font-size: 0.24rem;
 	font-family:"PingFangMedium";
 	background: -moz-linear-gradient(top, #142785 0%, #101b59 100%);
@@ -40,6 +40,11 @@ input,textarea,button{
 
 li{
 	list-style-type: none;
+}
+
+input[type=button], input[type=submit], input[type=file], button { 
+	cursor: pointer; 
+	-webkit-appearance: none; 
 }
 
 

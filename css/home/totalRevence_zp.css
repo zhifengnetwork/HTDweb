@@ -1,6 +1,14 @@
+.totalRevenue-wrap .thead-zp{
+    padding-top: 0.88rem;
+    box-sizing: border-box;
+}
 .totalRevenue-wrap .thead-zp ul{
     height: 0.6rem;
-    display: flex;
+    display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
     align-items: center;
     justify-content: space-around;
     font-size: 0.28rem;
@@ -14,7 +22,11 @@
 
 .totalRevenue-wrap .tbody-zp ul li{
     height: 0.6rem;
-    display: flex;
+    display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
     align-items: center;
     justify-content: space-around;
     color: #fff;

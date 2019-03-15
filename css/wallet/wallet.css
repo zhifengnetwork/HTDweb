@@ -121,18 +121,18 @@ th,td{
 	width: 90%;
 	height: 9.5rem;
 	background: linear-gradient(#1de5e2,#b588f7);
-	background: -webkit-linear-gradient(#1de5e2,#b588f7);
-	text-align: center;
+	background: -webkit-linear-gradient(#1de5e2,#b588f7);	
 	line-height: .6rem;
 	overflow-y: auto;
 }
 .assetPopup .currency {
 	font-size: .35rem;
+	text-align: center;
 }
 .assetPopup .iconfont {
-	position: fixed;
-	top: 2.7rem;
-	right: .4rem;
+	position: absolute;
+	top: 0;
+	right: 0;
 	font-size: .75rem;
 }
 
@@ -190,3 +190,14 @@ th,td{
 .site .hx span:last-child{
 	font-size: .3rem;
 }
+
+.det {
+	font-size: .35rem;
+	font-weight: 900;
+	line-height: .7rem;
+	color: #000;
+	text-align: center;
+	background: linear-gradient(left,#ffcb52,#ff7b02);
+	background: -webkit-linear-gradient(left,#ffcb52,#ff7b02);
+}
+
