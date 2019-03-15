@@ -22,6 +22,8 @@ body {
 
 .login-new-page{
     padding:.3rem .3rem .3rem .3rem;
+    padding-top: .88rem;
+    box-sizing: border-box;
 }
 .from-group{
     /* margin-top: .2rem; */

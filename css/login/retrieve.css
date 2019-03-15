@@ -25,12 +25,12 @@ body {
 }
 
 .retrieve-new-page{
-    padding: .3rem;
+    padding:.2rem .3rem .2rem .3rem;
+    padding-top: .88rem;
+    box-sizing: border-box;
 }
 
 .from-group{
-    /* margin-top: .2rem; */
-    /* border-bottom: .01rem solid  #e0e0e0; */
     position: relative;
     background: #ffffff;
     border-radius: .2rem;

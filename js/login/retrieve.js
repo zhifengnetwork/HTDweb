@@ -1,4 +1,19 @@
 $(function(){
+    //手机框
+    $(".phone").blur(function(){
+        let pwd1 = $(this)
+        let reg = /^1[34578]\d{9}$/;  /*用户手机号*/
+        if(pwd1.val()==""){
+            pwd1.parent().prev().addClass("mistake").html(`手机不能为空`)
+            return false
+        }else if(!reg.test(pwd1.val())){
+            pwd1.parent().prev().addClass("mistake").html(`请输入正确的手机号~`)
+            return false
+        }else{
+         pwd1.parent().prev().removeClass("mistake").html("")
+        }
+     })
+    // 密码框1
     $(".pwd1").blur(function(){
        let pwd1 = $(this)
        let password = /^[\w_-]{6,16}$/;
@@ -12,7 +27,7 @@ $(function(){
         pwd1.parent().prev().removeClass("mistake").html("")
        }
     })
-
+// 密码框2
     $(".pwd2").blur(function(){
         let pwd1 = $(this)
         let password = /^[\w_-]{6,16}$/;
