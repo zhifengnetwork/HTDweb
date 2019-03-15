@@ -11,10 +11,11 @@ $(function(){
 	 })
      function verify(reg,pro,dd){
 		 if(pro.val()==""){
-			 pro.parent().prev().addClass("mistake").html(`${dd}`).show()
+			 pro.parent().prev().addClass("mistake").html(`${dd}不能为空`).show()
 			 return false;
 		 }else if(!reg.test(pro.val())){
-			 pro.parent().prev().addClass("mistake").html(`${dd}`).show()
+			 pro.parent().prev().addClass("mistake").html(`${dd}格式错误`).show()
+
 			 return false;
 		 }else{
 			 pro.parent().prev().removeClass("mistake").html("").hide();

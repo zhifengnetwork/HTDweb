@@ -45,6 +45,11 @@
       color: #ffffff;
       font-size: .3rem;
   }
+  .info{
+    position: relative;
+    top:.4rem;
+    left:1.1rem;
+}
 
   .sms-login-from .btn{
   margin-top:.5rem;
