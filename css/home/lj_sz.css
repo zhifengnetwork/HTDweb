@@ -5,7 +5,7 @@ body{max-width: 750px;}
 
 .lj_sz_main ul li{border-bottom: 0.01rem solid #000;line-height: 0.8rem;}
 .lj_sz_main ul li input{font-size: 0.24rem;color: #000;}
-.lj_sz_main ul li p{display: inline-block;color: #000;width: 20%;text-align: left;margin-right: 0.2rem;margin-left: 0.3rem;}
+.lj_sz_main ul li p{display: inline-block;color: #000;width: 22%;text-align: left;margin-left: 0.3rem;}
 .lj_sz_main ul li img{width: 0.15rem;height: 0.2rem; float: right;margin-top: 0.3rem;margin-right: 0.3rem;}
 .lj_last_li{border-bottom: none !important;}
 

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5手机身份证上传表单提交代码 - xw素材网</title>
+<link rel="stylesheet" href="../css/home/lj_publi.css" />
+<link rel="stylesheet" href="../css/home/lj_style.css" />
+</head>
+<body>
+
+<section class="acc_apply">
+	<ul>
+		<li style="border-top: 0; margin-bottom: 60px;">
+			<div class="acc_img">
+				<p class="tc">身份证正面</p>
+				<div id="sss">
+					<img class="acc_imgin" src="img/acc_img.png" id="img0">
+				</div>
+				<div class="acc_sc">
+					<a href="javascript:;" class="tc acc_scicon">选择图片</a>
+					<input type="file" name="file0" id="file0" multiple class="ph08" />
+				</div>
+				<!--<p class="ph09 ">注：身份证上的所有信息清晰可见，必须能看清证件号。照片需免冠，建议未化妆。手持证件人的五官清晰可见。照片内容真实有效。不得做任何修改。支持jpg、jpeg、bmp、gif格式照片。大小不超过5M</p>-->
+			</div>
+		</li>
+		<li style="border-top: 0; margin-bottom: 60px;">
+			<div class="acc_img">
+				<p class="tc">身份证反面</p>
+				<div id="sss">
+					<img class="acc_imgin" src="img/acc_img.png" id="img0">
+				</div>
+				<div class="acc_sc">
+					<a href="javascript:;" class="tc acc_scicon">选择图片</a>
+					<input type="file" name="file0" id="file0" multiple class="ph08" />
+				</div>
+				<!--<p class="ph09 ">注：身份证上的所有信息清晰可见，必须能看清证件号。照片需免冠，建议未化妆。手持证件人的五官清晰可见。照片内容真实有效。不得做任何修改。支持jpg、jpeg、bmp、gif格式照片。大小不超过5M</p>-->
+			</div>
+		</li>
+	</ul>
+</section>
+
+<script src="js/jquery1.8.3.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$(window).on("load", function() {
+				$("#loading").fadeOut();
+		})
+		$("#tip .pack a").on("click", function() {
+			$("#tip").fadeOut()
+			$("#tip .pack p").html("")
+			return false;
+		})
+		function alerths(str) {
+			$("#tip").fadeIn()
+			$("#tip .pack p").html(str)
+			return false;
+		}
+		$(".acc_sure").on("click", function() {
+			alerths("请等待审核！")
+			return false;
+		})
+		$("#file0").change(function() {
+			if (this.files && this.files[0]) {
+				var objUrl = getObjectURL(this.files[0]);
+				console.log("objUrl = " + objUrl);
+				if (objUrl) {
+					$("#img0").attr("src", objUrl);
+					$("#file0").click(function(e) {
+						$("#img0").attr("src", objUrl);
+					});
+				} else {
+					this.select();
+					var imgSrc = document.selection.createRange().text;
+					var localImagId = document.getElementById("sss");
+					try {
+						preload.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = data;
+					} catch (e) {
+						this._error("filter error");
+						return;
+					}
+					this.img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src=\"" + data + "\")";
+				}
+			}
+		});
+		function getObjectURL(file) {
+			var url = null;
+			if (window.createObjectURL != undefined) {
+				url = window.createObjectURL(file);
+			} else if (window.URL != undefined) { 
+				url = window.URL.createObjectURL(file);
+			} else if (window.webkitURL != undefined) { 
+				url = window.webkitURL.createObjectURL(file);
+			}
+			return url;
+		}
+	})
+</script>
+
+</body>
+</html>
