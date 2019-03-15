@@ -11,7 +11,7 @@ $(document).ready(function(){
 	$(".hideTz").on("click",function(){
 		$(".pop").hide()
 	})
-	$(".currency").on("click",function(){
+	$(".ur").on("click",function(){
 		$(".code-up").show()
 		$(".pop").hide()
 		

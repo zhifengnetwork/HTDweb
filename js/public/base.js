@@ -9,3 +9,7 @@ function returnFun(){
 	}
 	return false;
 }
+/*路径-跳转*/
+function jumpFun(_url){
+	window.location.href = _url;
+}
