@@ -1,7 +1,6 @@
 /* 
    注册样式表
 */
-<<<<<<< HEAD:css/user/register.css
 body {
     width: 100%;
     height: 100vh;
@@ -13,34 +12,17 @@ body {
     background: -o-linear-gradient(top, #1de5e2 0%, #b588f7 100%);
     background: -ms-linear-gradient(top, #1de5e2 0%, #b588f7 100%);
 }
-=======
->>>>>>> 26328bd9925d4888b86d73e9c2bacfff903b7c73:css/login/register.css
 
 .registerbox{
+	padding-top: .88rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
     width: 100%;
     position: relative;
     margin-left:auto;
     margin-right: auto;
 }
-/* .headerbox{
-    height: 1rem;
-    width: 100%;
-    position: relative;
-    text-align: center;
-    line-height: 1rem;
-    background: #181675;
-}
-.headerbox .goback{
-    position: absolute;
-    left:.3rem;
-    top: .3rem; 
-    width: .35rem;
-    height: .35rem;
-}
-.headerbox  .headertitle{
-    font-size:.3rem;
-    color: #ffffff;
-} */
 
 .reg-new-page{
     padding:.2rem .3rem .2rem .3rem;
@@ -100,7 +82,7 @@ body {
       margin-top: .2rem; 
   }
   .policy .icon{
-      background: url("/image/user/quanquan.png")no-repeat;
+      background: url("../../image/login/quanquan.png")no-repeat;
       background-size: 100%;
       width: .4rem;
       height: .4rem;
@@ -110,7 +92,7 @@ body {
   }
 
   .policy .active{
-    background: url("/image/user/cheack.png")no-repeat;
+    background: url("../../image/login/cheack.png")no-repeat;
     background-size: 100%;
     width: .4rem;
     height: .4rem;

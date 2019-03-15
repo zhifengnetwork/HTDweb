@@ -12,31 +12,13 @@ body {
     background: -o-linear-gradient(top, #1de5e2 0%, #b588f7 100%);
     background: -ms-linear-gradient(top, #1de5e2 0%, #b588f7 100%);
 }
+
 .loginbox{
     width: 100%;
     position: relative;
     margin-left:auto;
     margin-right: auto;
 }
-/* .headerbox{
-    height: 1rem;
-    width: 100%;
-    position: relative;
-    text-align: center;
-    line-height: 1rem;
-    background: #101b59;
-}
-.headerbox .goback{
-    position: absolute;
-    left:.3rem;
-    top: .3rem; 
-    width: .35rem;
-    height: .35rem;
-}
-.headerbox  .headertitle{
-    font-size:.3rem;
-    color: #ffffff;
-} */
 
 .login-new-page{
     padding:.3rem .3rem .3rem .3rem;
@@ -69,36 +51,6 @@ body {
     font-size: .3rem;
     height:.8rem;
 }
-<<<<<<< HEAD:css/user/login.css
-=======
-  .from-group .from-tit{
-      font-size: .3rem;
-      color: #ffffff;
-  }
-  .from-group input{
-      padding-left:.2rem;
-      color: #ffffff;
-      font-size: .3rem;
-  }
-  .info{
-    position: relative;
-    top:.4rem;
-    left:1.1rem;
-}
->>>>>>> 26328bd9925d4888b86d73e9c2bacfff903b7c73:css/login/login.css
-
-  /* .sms-login-from .btn{
-  margin-top:.5rem;
-  width: 100%;
-  height: .8rem;
-  border: 0;
-  font-size: .3rem;
-  color: #FFFFFF;
-  }
-  .sms-login-from  .dis{
-      background-color: #b0b0b0;
-    border-radius: .2rem;
-  } */
  .info.mistake {
     color: red;
 }
