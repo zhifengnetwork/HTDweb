@@ -21,5 +21,11 @@ $(function(){
 			 pro.parent().prev().removeClass("mistake").html("").hide();
 			 return true;
 		 }
+		
 	 }
+     
+     /*登录*/
+     $('.dis').on('click',function(){
+     	window.location.href = '../home/index.html'
+     })
 	})
