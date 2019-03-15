@@ -18,6 +18,10 @@
 			}
 			.wrap {
 				position: relative;
+				
+				/*00*/
+				width: 100%;
+				height: 100vh;
 			}
 			/*按钮*/
 			/*.bottmBut {
@@ -78,11 +82,12 @@
 			#pic {
 				width: 5rem;
 				height: 5rem;
-				position: relative;
+				/*position: relative;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, 50%);
+				transform: translate(-50%, 70%);*/
 				border-radius: .6rem;
+				z-index: -20;
 				
 			}
 			
@@ -102,6 +107,11 @@
 			.cancelYF {
 				margin-top: .06rem;
 			}
+			.down{
+				
+				display: block;
+				background: white;
+			}
 		</style>
 	</head>
 
@@ -118,9 +128,16 @@
 	        
 			<input id="text" type="text" value="http://jindo.dev.naver.com/collie" style="width:80%;" hidden /><br />
 
-			<div id="pic">
-				<div id="qrcode" style="width:150px; height:150px; margin-top:15px;position: absolute;top: 50%;left: 50%;transform: translate(-40%,-50%);"></div>
-			</div>
+			<!--<div >
+				<div id="qrcode" style="width:150px; height:150px;position: absolute;top: 50%;left: 50%;transform: translate(-40%,70%);"></div>
+			</div>-->
+			
+			<div id="qrcode" style="width:150px; height:150px;position: absolute;top: 0;left: 0;bottom: 0;right: 0;margin: auto;"></div>
+			
+			
+			<!--背景样式-->
+			<img src="../image/qrcode/1.jpg" id="pic" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;margin: auto;z-index: -1;"/>
+			
 
 		</div>
 		<!--底部弹窗（蒙版）body-->
@@ -130,7 +147,7 @@
 				<!--内容-->
 				<div class="BAlertContent">
 					<p class="BACTerm" alt="0">换个样式</p>
-					<p class="BACTerm" alt="1">保存到手机</p>
+					<a class="down BACTerm" alt="1" href="" download="downImg">保存到手机</a>
 					<p class="BACTerm cancelYF" alt="2">取消</p>
 				</div>
 			</div>
@@ -138,7 +155,7 @@
 		</div>
 
 
-
+        <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 		<script src="../js/public/jquery-1.8.3.min.js"></script>
 		<script src="qrcode.js"></script>
 		<script src="../js/public/base.js"></script>
@@ -146,8 +163,8 @@
 		<script>
 			$(document).ready(function() {
 				//var random_bg=parseInt(3*Math.random());
-				var bg = 'url(../image/qrcode/' + "1" + '.jpg)';
-				$("#pic").css("background-image", bg);
+				var bg = '../image/qrcode/' + "1" + '.jpg';
+				$("#pic").attr("src", bg);
 			});
 
 			//实现滚动条无法滚动
@@ -167,8 +184,8 @@
 				document.removeEventListener("touchmove", mo, false);
 			}
 			var qrcode = new QRCode(document.getElementById("qrcode"), {
-				width: 125,
-				height: 125
+				width: 150,
+				height: 150
 			});
 
 			function makeCode() {
@@ -194,6 +211,29 @@
 					makeCode();
 				}
 			});
+			
+			//保存二维码成图片
+			var canvas2 = document.createElement("canvas");
+		    let _canvas = document.querySelector('div');
+		    var w = parseInt(window.getComputedStyle(_canvas).width);
+		    var h = parseInt(window.getComputedStyle(_canvas).height);
+		    //将canvas画布放大若干倍，然后盛放在较小的容器内，就显得不模糊了
+		    canvas2.width = w * 2;
+		    canvas2.height = h * 2;
+		    canvas2.style.width = w + "px";
+		    canvas2.style.height = h + "px";
+		    //可以按照自己的需求，对context的参数修改,translate指的是偏移量
+               var context = canvas2.getContext("2d");
+               context.translate(-0,-270);
+               context.scale(2, 2);
+		       html2canvas(document.querySelector('div'), { canvas: canvas2 }).then(function(canvas) {
+		        //document.body.appendChild(canvas);
+		        //canvas转换成url，然后利用a标签的download属性，直接下载，绕过上传服务器再下载
+		        document.querySelector(".down").setAttribute('href', canvas.toDataURL());
+		    });
+			    
+			    
+			
 		</script>
 		<!--本页面js-->
 		<script>
@@ -236,9 +276,12 @@
 					if(methodD == 0) {
 						//切换背景代码
 						var random_bg = parseInt(7 * Math.random());
-						var bg = 'url(../image/qrcode/' + random_bg + '.jpg)';
-						$("#pic").css("background-image", bg);
-					} 
+						var bg = '../image/qrcode/' + random_bg + '.jpg';
+						$("#pic").attr("src", bg);
+					}else if(methodD == 1){
+						
+						
+					}
 				})
 			})
 		</script>
