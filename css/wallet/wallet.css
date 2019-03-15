@@ -130,9 +130,9 @@ th,td{
 	font-size: .35rem;
 }
 .assetPopup .iconfont {
-	position: fixed;
-	top: 2.7rem;
-	right: .4rem;
+	position: absolute;
+	top: 0;
+	right: 0;
 	font-size: .75rem;
 }
 
