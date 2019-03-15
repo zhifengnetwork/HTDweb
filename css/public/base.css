@@ -9,16 +9,8 @@
 .header-zp .return{
     position: absolute;
     left: 0;
-    top: 0;
-  	width: 10%;
-  	height: 100%;
-  	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-  	align-items: center;
-  	justify-content: center;
+    top: 0.1rem;
+    padding: 0.2rem;
 }
 .header-zp .return img{
     width: 0.16rem;
