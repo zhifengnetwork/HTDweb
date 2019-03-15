@@ -26,23 +26,11 @@ $(function(){
 	 $(".pwd").blur(function(){
 		 let reg=/^[a-zA-Z0-9]{6,16}$/;; /*用户密码*/
 		 let $pwd=$(this)
-<<<<<<< HEAD:js/user/login.js
 		 if($pwd.val()==""){
 			 $pwd.parent().prev().addClass("mistake").html("用户密码不能为空")
 			 return false;
 		 }else if(!reg.test($pwd.val())){
 			 $pwd.parent().prev().addClass("mistake").html("用户名密码格式错误 6~16位~")
-=======
-		 verify(regg,$pwd,"密码")
-	 })
-     function verify(reg,pro,dd){
-		 if(pro.val()==""){
-			 pro.parent().prev().addClass("mistake").html(`${dd}不能为空`).show()
-			 return false;
-		 }else if(!reg.test(pro.val())){
-			 pro.parent().prev().addClass("mistake").html(`${dd}格式错误`).show()
-
->>>>>>> 26328bd9925d4888b86d73e9c2bacfff903b7c73:js/login/login.js
 			 return false;
 		 }else{
 			 $pwd.parent().prev().removeClass("mistake").html("")
@@ -53,7 +41,6 @@ $(function(){
 		}
 			 return true;
 		 }
-<<<<<<< HEAD:js/user/login.js
 	 })
 	 
 	 // 返回上一页
@@ -70,22 +57,6 @@ $(function(){
 	 }
 	
 	//  登录
-	  $(".btn").click(function(){
-			var input = $("input")
-			console.log(input)
-			for (input in item){
-				console.log(item)
-			}
-		})
+	 
 
-=======
-		
-	 }
-     
-     /*登录*/
-     $('.dis').on('click',function(){
- 		window.location.href = '../home/index.html';
-     })
-     
->>>>>>> 26328bd9925d4888b86d73e9c2bacfff903b7c73:js/login/login.js
 	})

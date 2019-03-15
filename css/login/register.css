@@ -1,7 +1,6 @@
 /* 
    注册样式表
 */
-<<<<<<< HEAD:css/user/register.css
 body {
     width: 100%;
     height: 100vh;
@@ -13,8 +12,6 @@ body {
     background: -o-linear-gradient(top, #1de5e2 0%, #b588f7 100%);
     background: -ms-linear-gradient(top, #1de5e2 0%, #b588f7 100%);
 }
-=======
->>>>>>> 26328bd9925d4888b86d73e9c2bacfff903b7c73:css/login/register.css
 
 .registerbox{
     width: 100%;
@@ -22,28 +19,12 @@ body {
     margin-left:auto;
     margin-right: auto;
 }
-/* .headerbox{
-    height: 1rem;
-    width: 100%;
-    position: relative;
-    text-align: center;
-    line-height: 1rem;
-    background: #181675;
-}
-.headerbox .goback{
-    position: absolute;
-    left:.3rem;
-    top: .3rem; 
-    width: .35rem;
-    height: .35rem;
-}
-.headerbox  .headertitle{
-    font-size:.3rem;
-    color: #ffffff;
-} */
+
 
 .reg-new-page{
     padding:.2rem .3rem .2rem .3rem;
+    padding-top: .88rem;
+    box-sizing: border-box;
 }
  .from-group{
     /* margin-top: .2rem; */

@@ -19,33 +19,15 @@ body {
     margin-left:auto;
     margin-right: auto;
 }
-/* .headerbox{
-    height: 1rem;
-    width: 100%;
-    position: relative;
-    text-align: center;
-    line-height: 1rem;
-    background: #101b59;
-}
-.headerbox .goback{
-    position: absolute;
-    left:.3rem;
-    top: .3rem; 
-    width: .35rem;
-    height: .35rem;
-}
-.headerbox  .headertitle{
-    font-size:.3rem;
-    color: #ffffff;
-} */
+
 
 .retrieve-new-page{
-    padding: .3rem;
+    padding:.2rem .3rem .2rem .3rem;
+    padding-top: .88rem;
+    box-sizing: border-box;
 }
 
 .from-group{
-    /* margin-top: .2rem; */
-    /* border-bottom: .01rem solid  #e0e0e0; */
     position: relative;
     background: #ffffff;
     border-radius: .2rem;
