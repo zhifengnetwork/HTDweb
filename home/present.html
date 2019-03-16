@@ -5,10 +5,9 @@
 		<title>提币</title>
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="stylesheet" href="../css/public/reset.css"/>
-		<link rel="stylesheet" href="../css/public/bottomNav.css"/>
 		<link rel="stylesheet" href="../css/public/base.css"/>
-		<link rel="stylesheet" href="../css/home/subpage/present.css"/>
-		
+		<link rel="stylesheet" href="../css/home/present.css"/>
+		<script src="../js/public/rem.js"  charset="utf-8"></script>
 	</head>
 	<body>
 		<!-- 最大的外套 -->
@@ -49,7 +48,7 @@
 						66
 					</div>
 					<!-- 提取按钮 -->
-					<div class="currency_btn" onclick="send(_id,state)">
+					<div class="currency_btn" onclick="send('_id1')">
 						提取
 					</div>
 				</div>
@@ -67,7 +66,7 @@
 						66
 					</div>
 					<!-- 提取按钮 -->
-					<div class="currency_btn" onclick="send(_id,state)">
+					<div class="currency_btn" onclick="send('_id2')">
 						提取
 					</div>
 				</div>
@@ -89,8 +88,9 @@
 			<script src="../js/public/jquery-1.8.3.min.js"></script>
 			<script src="../js/public/base.js"></script>
 			<script>
-			function send(id, state) {
+			function send(id_) {
 				$('.popover').show();
+				console.log(id_)
 			}
 			$(document).ready(function() {
 				//阻止事件冒泡

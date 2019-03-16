@@ -1,22 +1,26 @@
 $(document).ready(function(){
 	$(".asset").on("click",function(){
-		$(".showZ").show()
+		$(".showZ").show();
+		$(".shadow").show();
 	})
 	$(".hideIcon").on("click",function(){
-		$(".showZ").hide()
+		$(".showZ").hide();
+		$(".shadow").hide();
 	})
 	$(".sum").on("click",function(){
-		$(".pop").show()
+		$(".pop").show();
+		$(".shadow").show();
 	})
 	$(".hideTz").on("click",function(){
-		$(".pop").hide()
+		$(".pop").hide();
+		$(".shadow").hide();
 	})
 	$(".ur").on("click",function(){
 		$(".code-up").show()
-		$(".pop").hide()
-		
+		$(".pop").hide()		
 	})
 	$(".shut").on('click',function(){
-		$(".code-up").hide()		
+		$(".code-up").hide();
+		$(".shadow").hide();
 	})
 })
