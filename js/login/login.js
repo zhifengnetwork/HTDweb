@@ -38,7 +38,6 @@ $(function(){
 		 }
 	 })
 	 
-<<<<<<< HEAD
 	 // 返回上一页
 	     function returnFun(){
 	 	/*返回上一页*/
@@ -66,8 +65,6 @@ $(function(){
 			$(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
 		}
 })
-=======
->>>>>>> 2cc7c24bf4d85f955d0d83f9abbdea6a26d00f35
 	
 	//  登录
    $(".btn").click(function(){ 
