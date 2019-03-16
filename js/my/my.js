@@ -7,9 +7,6 @@ $(function(){
             $(this).addClass('dianji').siblings().removeClass('dianji');
             $('#con li').eq(i).show().siblings().hide();
         });
-	
-	
-	
-	
+		
 	
 })
