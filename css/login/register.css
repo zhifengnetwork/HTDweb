@@ -16,17 +16,21 @@ body {
     background-color: transparent;
 }
 .registerbox{
+	padding-top: .88rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
     width: 100%;
     position: relative;
     margin-left:auto;
     margin-right: auto;
 }
 
-
 .reg-new-page{
     padding:.2rem .3rem .2rem .3rem;
-    padding-top: .88rem;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
  .from-group{
     position: relative;
@@ -99,7 +103,7 @@ body {
  }
   
   .policy .icon{
-      background: url("/image/user/quanquan.png")no-repeat;
+      background: url("../../image/login/quanquan.png")no-repeat;
       background-size: 100%;
       width: .4rem;
       height: .4rem;
@@ -109,7 +113,8 @@ body {
   }
 
   .policy .active{
-    background: url("/image/user/gou.png")no-repeat;
+    background: url("../../image/login/cheack.png")no-repeat;
+    /* background: url("/image/user/gou.png")no-repeat; */
     background-size: 100%;
     width: .4rem;
     height: .4rem;

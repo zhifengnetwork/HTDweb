@@ -3,7 +3,7 @@ $(function(){
 	var condition={
 		phonestate:false,    //用户名手机
 		pwdstate:false,      //用户密码
-}
+	}
 
 	// 验证用户手机格式
 	 $(".phone").blur(function(){
@@ -46,18 +46,6 @@ $(function(){
 		 }
 	 })
 	 
-	 // 返回上一页
-	     function returnFun(){
-	 	/*返回上一页*/
-	 	if($('.headWrap_lb .returnBut_lb').attr('data-num') == 1 || $('.headWrap_lb .returnBut_lb').attr('data-num') == undefined ){
-	 		window.history.back();
-	 		console.log("返回上一页");
-	 	}else {
-	 		/*页面跳转*/
-	 		window.location.href = $('.headWrap_lb .returnBut_lb').attr('data-num');
-	 	}
-	 	return false;
-	 }
 	
 	//  登录
    $(".btn").click(function(){ 
@@ -77,9 +65,11 @@ $(function(){
 			}
 			else{
 				alert("可以登录")
+				window.location.href = '../home/index.html';
 			}
 		
 	 })
 	 
 
-	})
+})
+
