@@ -3,7 +3,7 @@ $(function(){
 	var condition={
 		phonestate:false,    //用户名手机
 		pwdstate:false,      //用户密码
-}
+	}
 
 	// 验证用户手机格式
 	 $(".phone").blur(function(){
@@ -38,6 +38,7 @@ $(function(){
 		 }
 	 })
 	 
+<<<<<<< HEAD
 	 // 返回上一页
 	     function returnFun(){
 	 	/*返回上一页*/
@@ -65,6 +66,8 @@ $(function(){
 			$(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
 		}
 })
+=======
+>>>>>>> 2cc7c24bf4d85f955d0d83f9abbdea6a26d00f35
 	
 	//  登录
    $(".btn").click(function(){ 
@@ -84,9 +87,11 @@ $(function(){
 			}
 			else{
 				alert("可以登录")
+				window.location.href = '../home/index.html';
 			}
 		
 	 })
 	 
 
-	})
+})
+

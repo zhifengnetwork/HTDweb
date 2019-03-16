@@ -16,13 +16,13 @@ body {
 .header-zp{
     background-color: transparent;
 }
+
 .loginbox{
     width: 100%;
     position: relative;
     margin-left:auto;
     margin-right: auto;
 }
-
 
 .login-new-page{
     padding:.3rem .3rem .3rem .3rem;
@@ -72,8 +72,6 @@ body {
     width: 85%; 
     height:.8rem;
 }
-
-  
  .info.mistake {
     color: red;
 }
