@@ -4,9 +4,10 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/public/rem.js"></script>
 		<link rel="stylesheet" href="../css/public/base.css" />
 		<link rel="stylesheet" href="../css/public/reset.css" />
-		<title>投资历史</title>
+		<title>股权拥有界面</title>
 
 		<style>
 			.zoshoyi {
@@ -16,51 +17,50 @@
 			
 			.tanxing {
 				text-align: center;
-				height: 1rem;
+				height: .6rem;
 				width: 100%;
-				background-color: #12183c;
+				list-style: none;
 				display: flex;
 				align-items: center;
+				background-color: #12183c;
 			}
 			
 			.tanxing li {
 				flex-wrap: wrap;
 				color: white;
 				font-size: .3rem;
-				list-style: none;
-				width: 30%;
+				width: 33%;
+				height: 100%;
+				line-height: .6rem;
+			}
+			.tanxing li:last-child {
+				width: 34%;
 			}
 			
-			.tanxing1 {
+			.tanxing {
 				display: flex;
 				text-align: center;
-				height: .7rem;
+				height: .5rem;
 				width: 100%;
 				line-height: 1rem;
 			}
 			
-			.tanxing1 p {
+			.tanxing p {
 				flex-wrap: nowrap;
 				font-size: .3rem;
-				list-style: none;
-				width: 30%;
+				width: 33%;
+				height: 100%;
+				line-height: .5rem;
 				color: white;
 			}
-			
-			.tanxing2 {
-				display: flex;
-				text-align: center;
-				height: .7rem;
-				width: 100%;
-				line-height: 1rem;
+			.tanxing p:last-child {
+				width: 34%;
 			}
-			
-			.tanxing2 p {
-				flex-wrap: nowrap;
-				font-size: .3rem;
-				list-style: none;
-				width: 30%;
-				color: white;
+			.tanxing:nth-child(odd){
+			    background-color: #5462af;
+			}
+			.tanxing:nth-child(even){
+			    background-color: #404786;
 			}
 		</style>
 
@@ -70,30 +70,23 @@
 
 		<div class="header-zp">
 			<span class="return" onclick="javascript:history.back(-1)"><img src="../image/public/return-zp@2x.png"></span>
-			<h3>投资历史</h3>
+			<h3>股权拥有界面</h3>
 		</div>
 		<div class="zoshoyi">
 			<ul class="tanxing">
 				<li>日期</li>
-				<li>配套</li>
-				<li>总额度</li>
-				<li>状态</li>
+				<li>用户</li>
+				<li>额度</li>
 			</ul>
-			<div class="tanxing1">
+			<div class="tanxing">
 				<p>2019-11-14</p>
-				<p>配套</p>
-				<p class="you1">4000-6000</p>
-				<p>不在状态</p>
-			</div>
-			<div class="tanxing2">
-				<p>2019-12-14</p>
-				<p>配套</p>
-				<p class="you2">4000-6000</p>
-				<p>不在状态</p>
+				<p>13698745211</p>
+				<p>6000</p>
 			</div>
 
+
 			<script src="../js/public/jquery-1.8.3.min.js"></script>
-			<script src="../js/public/rem.js"></script>
+			
 	</body>
 
 </html>
