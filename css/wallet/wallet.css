@@ -201,3 +201,8 @@ th,td{
 	background: -webkit-linear-gradient(left,#ffcb52,#ff7b02);
 }
 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
