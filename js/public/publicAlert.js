@@ -1,8 +1,12 @@
 /*动态创建对话框*/
 /**第一参数:把动态标签放在那里。
  * 第二参数:提示文本。
+ * 第三参数:是否跳转，跳转的路径
  * **/
-function suredAlert(_butShow,_text) {
+function suredAlert(_butShow,_text,_url) {
+	/*如果未传，默认空*/
+	var pageUrl = _url || false;
+	/*创建标签*/
 	var str = '';
 	str += '<div class="maskWrap">';
 		str += '<div class="signOutBox">';
@@ -11,7 +15,7 @@ function suredAlert(_butShow,_text) {
 			//	str +='<p class="numericalValue">'+_number+'</p>';
 			str += '</div>';
 			str += '<div class="signOutBox-button">';
-				str += '<p class="signOut-confirm sure-middle" onclick="thisButD(true)">确认</p>';
+				str += '<p class="signOut-confirm sure-middle" onclick="thisButD(this)" data-url="'+ pageUrl +'">确认</p>';
 			str += '</div>';
 		str += '</div>';
 	str += '</div>';
@@ -27,15 +31,17 @@ function suredAlert(_butShow,_text) {
 }
 /**
  * 弹框=>确认按钮
- * judge: 确定（true）||取消（false）
  * **/
-var judge = null;
-function thisButD(_judge) {
-	console.log(111);
-	judge = _judge;
-	/*隐藏 => 弹框*/
-	/*$('.maskWrap').hide();*/
+function thisButD(_this,_url) {
+	console.log('点击确认!');
+	/*保存this*/
+	var _that = $(_this);
+	console.log('跳转的路径:',_that.attr('data-url'));
+	if(!_that.attr('data-url')){
+		window.location.href = _that.attr('data-url');
+	}
 	/*删除 => 弹框*/
 	$('.maskWrap').remove();
-	return _judge;
+	
+	return false;
 }
