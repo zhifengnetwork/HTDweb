@@ -31,6 +31,8 @@ body {
 .retrieve-new-page{
     padding:.2rem .3rem .2rem .3rem;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 
 .from-group{

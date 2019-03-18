@@ -39,6 +39,7 @@ $(function(){
     // 密码框1
     $(".pwd1").blur(function(){
        let pwd1 = $(this)
+       var pwd2 = $(".pwd2")
        let password = /^[\w_-]{6,16}$/;
        if(pwd1.val()==""){
            pwd1.parent().parent().prev().addClass("mistake").html(`密码不能为空`)
@@ -46,10 +47,16 @@ $(function(){
        }else if(!password.test(pwd1.val())){
            pwd1.parent().parent().prev().addClass("mistake").html(`密码格式错误`)
            return condition.pwdstate=false
-       }else{
+       }else {
         pwd1.parent().parent().prev().removeClass("mistake").html("")
+        if(pwd1.val() == pwd2.val()){
+           pwd2.parent().parent().prev().addClass("mistake").html(``)  
+        }else{
+           pwd2.parent().parent().prev().addClass("mistake").html(`两次输入的密码不一致`)  
+           $(".pwd2").blur()
+        }
            return condition.pwdstate=true
-       }
+    } 
     })
 
 
@@ -59,7 +66,7 @@ $(function(){
           var pwd2 = $(".pwd2").val()
           if(pwd1!=pwd2){
             $(".pwd2").parent().parent().prev().addClass("mistake").html(`两次输入的密码不一致`)
-          return condition.inconsistent=false
+             return condition.inconsistent=false
           }else{
             $(".pwd2").parent().parent().prev().addClass("mistake").html("")
              return condition.inconsistent=true
@@ -78,8 +85,9 @@ $(function(){
             phone.parent().parent().prev().addClass("mistake").html(`请输入正确的手机号码~`)
             return condition.securitycode=false
         }else
-        createCode()
-        console.log(code)
+            createCode()
+           $(".verify").focus();
+            console.log(code)
             daojishi(60,$(this))
             $(".phone").attr("disabled","disabled") 
             phone.parent().parent().prev().addClass("mistake").html("")
@@ -110,7 +118,7 @@ $(function(){
      }  
       code = code.replace(/[^a-z\d]/ig,"")
     return code;
-   } 
+     } 
 
  //输入框有值 botton切换样式
  $(".pptt").keyup(function(){
@@ -128,31 +136,36 @@ $(function(){
 })
     //找回密码
   $(".btn").click(function(){
-    let userPhone = $(".phone")
-    let pwd1 = $(".pwd1")
-    let pwd2 = $(".pwd2")
-    let acquire = $(".acquire")
-    if(!condition.phonestate){
-         alert("请输入正确的手机")
-         userPhone.focus()
-       return false
-       }
-    if(!condition.pwdstate){
-        alert("密码有误")
-        pwd1.focus()
-        return false
-    }
-    if(!condition.securitycode){
-        alert("输入验证码有误")
+    let userPhone = $(".phone") //手机
+    let pwd1 = $(".pwd1")       //密码1
+    let pwd2 = $(".pwd2")       //密码2
+    let acquire = $(".acquire") //验证码
+    let body = $("body")     
+    if(condition.phonestate&&condition.pwdstate&&condition.securitycode&&condition.inconsistent){
+        suredAlert(body,"修改成功~");
+            return
+    }else{
+        
+       if(!condition.phonestate){  //手机号码
+        suredAlert(body,"请输入正确的手机号~");
+        userPhone.focus()
+        return
+      } 
+      if(!condition.securitycode){  //验证码
+        suredAlert(body,"请输入正确的验证码~");
         acquire.focus()
-        return false
-    }
-    if(!condition.inconsistent){
-        alert("密码不一致")
+        return  
+      }
+      if(!condition.pwdstate){     //密码
+        suredAlert(body,"请输入正确的密码~");
+        pwd1.focus()
+        return
+      }
+      if(pwd1.val() != pwd2.val()){ //二次密码
+        suredAlert(body,"输入的密码不一致~");
         pwd2.focus()
-    }
-    else{
-        alert("修改成功")
+        return  
+      }
     }
   })
   

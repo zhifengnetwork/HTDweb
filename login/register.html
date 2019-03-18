@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="../css/public/reset.css">
 		<link rel="stylesheet" type="text/css" href="../css/public/base.css" />
 		<link rel="stylesheet" href="../css/login/register.css">
+		<link rel="stylesheet" href="../css/public/alertWrap.css">
 		<script src="../js/public/rem.js"></script>
 	</head>
 
@@ -35,6 +36,14 @@
 						<div class="from-icon">
 							<img src="../image/login/suo.png" alt="">
 							<input type="password" placeholder="请输入用户密码" name="pwd" value class="pptt password">
+						</div>
+					</div>
+					<div class="info mistake"></div>
+					<div class="from-group">
+						<span class="from-tit">确认密码:</span>
+						<div class="from-icon">
+							<img src="../image/login/suo.png" alt="">
+							<input type="password" placeholder="请第二次输入用户密码" name="pwd2" value class="pptt affirmpwd">
 						</div>
 					</div>
 					<div class="info mistake"></div>
@@ -87,6 +96,7 @@
 		</div>
 	</body>
 	<script src="../js/public/jquery-1.8.3.min.js"></script>
+	<script src="../js/public/publicAlert.js"></script>
 	<script src="../js/login/register.js"></script>
 	<script src="../js/public/base.js"></script>
 </html>
