@@ -30,7 +30,13 @@ body {
     box-sizing: border-box;
 }
 .from-group{
-    position: relative;
+    /* position: relative; */
+    display:flex;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
     border-radius: .2rem;
     height: .8rem;
     line-height: .8rem;
@@ -40,7 +46,7 @@ body {
  .from-group .from-icon{
     display: inline-block;
     border: .01rem solid #ffffff;
-    width: 4.95rem;    
+    width: 80%;    
     border-radius: .1rem;
     height:.8rem;
 }
@@ -53,7 +59,7 @@ body {
 }
  .from-group .from-tit{
     display: inline-block;
-    width: 1.2rem;
+    width: 20%;
     font-size: .3rem;
     color: #ffffff;
     padding-left: .1rem;
@@ -63,7 +69,7 @@ body {
 .from-group input{
     padding-left:.1rem;
     font-size: .2rem;
-    width: 4.17rem;    
+    width: 85%; 
     height:.8rem;
 }
  .info.mistake {

@@ -108,12 +108,9 @@ $(function(){
         $(this).toggleClass("active")
         if($(this).hasClass("active")){
             condition.iconstate=true
-            if(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-                $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-            }else{
-             $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
-            }
+            $(".btn").addClass("active").removeClass("dis").attr("disabled",false)
         }else{
+            $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
             return condition.iconstate=false
         }
     }
