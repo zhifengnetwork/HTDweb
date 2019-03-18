@@ -32,7 +32,8 @@
 					<!--回显的图片-->
 					<img class="preViewImg" src="../image/home/acc_img.png" />
 					<!--上传图片 tyle='file'-->
-					<a class="uploadFile2" href="#">选择图片</a>
+					<a class="uploadFile2" id="uploadFile2" href="#">选择图片</a>
+					<p id="uploadFile3">上传中...</p>
 					<input class="uploadFile" type="file" onchange="UpLoad(this)" name="file" id="" value="0" accept="image/*" />
 				</div>
 				<p>身份证反面</p>
@@ -41,7 +42,8 @@
 					<!--回显的图片-->
 					<img class="preViewImg" src="../image/home/acc_img.png" />
 					<!--上传图片 tyle='file'-->
-					<a class="uploadFile2" href="#">选择图片</a>
+					<a class="uploadFile2" id="uploadFile4" href="#">选择图片</a>
+					<p class="uploadFile3">上传中...</p>
 					<input class="uploadFile" type="file" onchange="UpLoad(this)" name="file" id="" value="1" accept="image/*"  />
 				</div>
 
@@ -65,6 +67,7 @@
 			/*对应 回显图片的下标*/
 			var ind = null;
 			
+			
 			/*上传图片 按钮  */
 //			function uploadImgBut(_index) {
 //				ind = _index;
@@ -75,6 +78,10 @@
 
 			/*上传图片*/
 			function UpLoad(e) {
+				console.log(111);
+				//上传中
+//				$("#uploadFile3").show();
+//				$("#uploadFile2").hide();
 				var that = $(e);
 				if(e.files[0]) {
 					var f = e.files[0];
@@ -86,6 +93,7 @@
 							var result = event.target.result; //返回的dataURL   
 							var image = new Image();
 							image.src = result;
+							console.log(2222)
 							//若图片大小大于1M，压缩后再上传，否则直接上传  
 							if(f.size > 1024 * 1024) {
 								image.onload = function() {
@@ -112,6 +120,9 @@
 									console.log(result);
 								}
 							}
+							console.log(333)
+//							$("#uploadFile3").hide();
+//							$("#uploadFile2").show();
 						}
 					} else {
 						alert("请选择图片");
