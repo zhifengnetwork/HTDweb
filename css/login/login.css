@@ -30,7 +30,6 @@ body {
     box-sizing: border-box;
 }
 .from-group{
-    /* position: relative; */
     display:flex;
     display: -webkit-box; 
     display: -moz-box; 
