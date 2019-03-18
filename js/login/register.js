@@ -1,7 +1,7 @@
 
 
 $(function(){
-
+// 状态
     var condition={
         username:false,      //用户名
         phonestate:false,    //用户名手机
@@ -17,23 +17,25 @@ $(function(){
     $(".email").blur(statusemail)    //邮箱
     $(".verify").blur(statusverify)  //验证码
     $(".icon").click(statusicon)     //勾选
+
+    //用户名
      function  statusname(){
          var reg = /^[a-zA-Z0-9_-]{4,16}$/; /*用户名*/
          var name = $(this)
-        if(name.val()==""){
+        if(name.val()==""){  //用户名输入为空
             name.parent().parent().prev().addClass("mistake").html(`用户名不能为空`)
             return condition.username=false
-        }else if(!reg.test(name.val())){
+        }else if(!reg.test(name.val())){ //用户名验证失败
             name.parent().parent().prev().addClass("mistake").html(`用户名格式错误 长度在4-16之间`)
             return condition.username=false
         }else{
             name.parent().parent().prev().removeClass("mistake").html("") 
-            condition.username=true;
-            if(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-                $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-               }else{
-                $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
-            }   
+            return condition.username=true;
+            // if(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
+            //     $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
+            //    }else{
+            //     $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
+            // }   
         }
      }
      
@@ -49,14 +51,7 @@ $(function(){
             return condition.phonestate=false
         }else{
             phone.parent().parent().prev().removeClass("mistake").html("") 
-            condition.phonestate=true
-            if
-(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-                $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-               }else{
-                $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
-            }
-           // return condition.phonestate=true
+            return condition.phonestate=true
         }
      }
      // 密码
@@ -71,14 +66,7 @@ $(function(){
             return condition.pwdstate=false
         }else{
             password.parent().parent().prev().removeClass("mistake").html("") 
-            condition.pwdstate=true
-            if
-(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-                $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-               }else{
-                $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
-            }
-            //return condition.pwdstate=true
+            return condition.pwdstate=true
         }
      }
      //邮箱
@@ -93,14 +81,7 @@ $(function(){
             return condition.emailstate=false
         }else{
             email.parent().parent().prev().removeClass("mistake").html("")
-            condition.emailstate=true
-            if
-(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-                $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-               }else{
-                $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
-            }
-           // return condition.emailstate=true
+            return condition.emailstate=true
         }
      }
      //用户是否同意政策
@@ -108,12 +89,9 @@ $(function(){
         $(this).toggleClass("active")
         if($(this).hasClass("active")){
             condition.iconstate=true
-            if(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-                $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-            }else{
-             $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
-            }
+            $(".btn").addClass("active").removeClass("dis").attr("disabled",false)
         }else{
+            $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
             return condition.iconstate=false
         }
     }
@@ -129,12 +107,7 @@ $(function(){
             return condition.securitycode=false
         }else{
             code1.parent().parent().prev().removeClass("mistake").html("")
-            condition.securitycode=true
-            if(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-                $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-            }else{
-             $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
-            }
+            return condition.securitycode=true
         }
     }
 //   发送验证码
@@ -166,6 +139,22 @@ $(function(){
                 $(".phone").attr("disabled",false)
             }
     }
+
+     //输入框有值 botton切换样式
+ $(".pptt").keyup(function(){
+    var input = [];
+    $(".pptt[value]").each(function(i,item){
+        if(item.value!=""){
+            input.push(item)
+        }
+})	
+  if(input.length==$(".from-icon>input").length ){
+        $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
+    }else{
+        $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
+    }
+})
+
     // 随机验证码
     var code ; 
     function createCode(){ 
@@ -189,12 +178,15 @@ $(function(){
     let password = $(".password")
     let userEmail = $(".email")   
     let rec = $(".recommend")
-    if(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
-        alert("注册成功")
-       return true
-       }else{
-        alert("注册失败")
-        return false
-       }
+    // if(condition.username&&condition.phonestate&&condition.pwdstate&&condition.emailstate&&condition.iconstate&&condition.securitycode){
+    //     alert("注册成功")
+    //    return true
+    //    }else{
+    //     alert("注册失败")
+    //     return false
+    //    }
+    if(!condition.username){
+       
+    }
   })
   })

@@ -17,11 +17,7 @@ $(function(){
 		   			 return condition.phonestate=false
 		   }else{
 							$phone.parent().parent().prev().removeClass("mistake").html("")
-				if($(this).parent().parent().siblings(".from-group").find(".pptt").val().length>0){
-                  $(".btn").addClass("active").removeClass("dis").attr("disabled",false)
-			  }else{
-								  $(".btn").addClass("dis").removeClass("active").attr("disabled","disabled")
-							}
+				
 							return condition.phonestate=true
 		   }
 	 })
@@ -37,15 +33,38 @@ $(function(){
 			 return condition.pwdstate=false
 		 }else{
 			 $pwd.parent().parent().prev().removeClass("mistake").html("")
-			if($(this).parent().parent().siblings(".from-group").find(".pptt").val().length>0){
-			  	$(".btn").addClass("active").removeClass("dis").attr("disabled",false)
-		}else{
-			  	$(".btn").addClass("dis").removeClass("active").attr("disabled","disabled")
-		}
+			
 		return condition.pwdstate=true
 		 }
 	 })
 	 
+	 // 返回上一页
+	     function returnFun(){
+	 	/*返回上一页*/
+	 	if($('.headWrap_lb .returnBut_lb').attr('data-num') == 1 || $('.headWrap_lb .returnBut_lb').attr('data-num') == undefined ){
+	 		window.history.back();
+	 		console.log("返回上一页");
+	 	}else {
+	 		/*页面跳转*/
+	 		window.location.href = $('.headWrap_lb .returnBut_lb').attr('data-num');
+	 	}
+	 	return false;
+	 }
+
+	 //输入框有值 botton切换样式
+	 $(".pptt").keyup(function(){
+		var input = [];
+		$(".pptt[value]").each(function(i,item){
+			if(item.value!=""){
+				input.push(item)
+			}
+	})	
+	  if(input.length==$(".from-icon>input").length){
+			$(".btn").removeClass("dis").addClass("active").attr("disabled",false)
+		}else{
+			$(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
+		}
+})
 	
 	//  登录
    $(".btn").click(function(){ 

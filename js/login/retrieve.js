@@ -73,17 +73,17 @@ $(function(){
         let phone = $(".phone")
         if(phone.val()==""){
             phone.parent().parent().prev().addClass("mistake").html(`手机不能为空`)
-            return false
+            return condition.securitycode=false
         }else if(!reg.test(phone.val())){
             phone.parent().parent().prev().addClass("mistake").html(`请输入正确的手机号码~`)
-            return false
+            return condition.securitycode=false
         }else
         createCode()
         console.log(code)
             daojishi(60,$(this))
             $(".phone").attr("disabled","disabled") 
             phone.parent().parent().prev().addClass("mistake").html("")
-            return   
+            return condition.securitycode=true   
    })
    var code 
    function daojishi(seconds,obj){
@@ -112,15 +112,19 @@ $(function(){
     return code;
    } 
 
-  //输入框有值 botton切换样式
-  $(".pptt").keyup(function(){
-    $(".pptt").each(function(i,item){
-        if(item.value.length>0){
-            $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
-        }else{
-         $(".btn").addClass("dis").removeClass("active").attr("disabled",true)      
+ //输入框有值 botton切换样式
+ $(".pptt").keyup(function(){
+    var input = [];
+    $(".pptt[value]").each(function(i,item){
+        if(item.value!=""){
+            input.push(item)
         }
-    })
+})	
+  if(input.length==$(".from-icon>input").length){
+        $(".btn").removeClass("dis").addClass("active").attr("disabled",false)
+    }else{
+        $(".btn").addClass("dis").removeClass("active").attr("disabled",true)  
+    }
 })
     //找回密码
   $(".btn").click(function(){
