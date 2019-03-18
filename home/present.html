@@ -100,12 +100,14 @@
 				//阻止事件冒泡
 				$('.popover_content').click(function(e) {
 					e.stopPropagation();
-					$('.true').click(function() {
-						$('.popover').hide();
-					});
-					$('.false').click(function() {
-						$('.popover').hide();
-					});
+				});
+				//确认
+				$('.true').click(function() {
+					$('.popover').hide();
+				});
+				//取消
+				$('.false').click(function() {
+					$('.popover').hide();
 				});
 				//点击背景隐藏
 				$('.popover').click(function() {
