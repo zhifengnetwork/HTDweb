@@ -79,9 +79,10 @@ body {
 /* 输入框样式 */
 .from-group input {
     padding-left: .1rem;
-    font-size: .2rem;
+    font-size: .3rem;
     width: 84%;
     height: .8rem;
+    color: #ffffff;
 }
 /* 验证码样式 */
  .from-group .from-verify{
