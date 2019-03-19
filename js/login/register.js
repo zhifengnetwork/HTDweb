@@ -155,7 +155,7 @@ $(function(){
             var reg = /^1[34578]\d{9}$/;  /*用户手机号*/
             var phone = $(".phone")
             if(phone.val()==""){
-                phone.parent().parent().prev().addClass("mistake").html(`手机不能为空`)
+                phone.parent().parent().prev().addClass("mistake").html(`请输入手机号`)
                 return condition.phonestate=false
             }else if(!reg.test(phone.val())){
                 phone.parent().parent().prev().addClass("mistake").html(`请输入正确的手机号码~`)

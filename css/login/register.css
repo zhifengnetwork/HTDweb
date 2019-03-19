@@ -48,7 +48,6 @@
     .from-group .from-cc{
         font-size: .3rem;
         color: #1153f3;
-        padding-left: .1rem;
     
     }
     .from-group .from-tit {
@@ -56,21 +55,27 @@
         width: 20%;
         font-size: .3rem;
         color: #ffffff;
-        padding-left: .1rem;
     }
 
     .from-group .from-icon {
         display: inline-block;
-        border: .01rem solid #ffffff;
+        border: 1px solid #ffffff;
         width: 80%;
         border-radius: .1rem;
         height: .8rem;
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-flow: nowrap;
     }
     .from-group .from-icon img{
         padding-left: .3rem;
         height:.3rem;
         width: .3rem;
         vertical-align: middle;
+        padding-top: .24rem;
     }
 
     .from-group .acc{
@@ -86,7 +91,8 @@
     }
 
     .from-group .from-verify{
-        width: 60%;    
+        width: 59%;  
+        
     }
 
     .from-group .from-icon .verify{
@@ -94,6 +100,7 @@
     }
     
     .from-group .send-code{
+        margin-left:.1rem;
         border: 0;
         background: -moz-linear-gradient(top, #d224d5 0%, #d296e2 100%);
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d224d5), color-stop(100%, #d296e2));
@@ -159,13 +166,13 @@
     }
     .info{
         height: .5rem;
-        text-align: center;
-        width: 80%;  
         line-height: .5rem;
+        padding-left: 2rem;
     }
 
     .info.mistake{
         color: red;
+        font-size: .3rem;
     }
 
     .pptt::-webkit-input-placeholder { /* WebKit browsers */
