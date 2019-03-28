@@ -77,7 +77,9 @@
 				<!-- 提取弹框-s -->
 				<div class="popover">
 					<div class="popover_content">
-						暂时没有内容哦！
+						请输入提取金额:<input id="popover_num" type="number" />
+						<br />
+						转换后的金额:<input id="popover_convert" type="number" disabled="disabled"  />
 						<div class="popover_affirm">
 							<span class="true">确认</span>
 							<span class="false">取消</span>
@@ -100,12 +102,14 @@
 				//阻止事件冒泡
 				$('.popover_content').click(function(e) {
 					e.stopPropagation();
-					$('.true').click(function() {
-						$('.popover').hide();
-					});
-					$('.false').click(function() {
-						$('.popover').hide();
-					});
+				});
+				//确认
+				$('.true').click(function() {
+					$('.popover').hide();
+				});
+				//取消
+				$('.false').click(function() {
+					$('.popover').hide();
 				});
 				//点击背景隐藏
 				$('.popover').click(function() {

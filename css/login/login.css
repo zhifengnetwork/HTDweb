@@ -2,10 +2,6 @@
 登录样式表
 */
 body {
-    width: 100%;
-    height: 100vh;
-    font-size: 0.24rem;
-    font-family: "PingFangMedium";
     background: -moz-linear-gradient(top, #2866a3 0%, #5ebfc8 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2866a3), color-stop(100%, #5ebfc8));
     background: -webkit-linear-gradient(top, #2866a3 0%, #5ebfc8 100%);
@@ -14,7 +10,12 @@ body {
 }
 
 .header-zp{
-    background-color: transparent;
+    /* background-color: transparent; */
+	background: -moz-linear-gradient(top, #2866a3 0%, #2866a3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2866a3), color-stop(100%, #2866a3));
+	background: -webkit-linear-gradient(top, #2866a3 0%, #2866a3 100%);
+	background: -o-linear-gradient(top, #2866a3 0%, #2866a3 100%);
+	background: -ms-linear-gradient(top, #2866a3 0%, #2866a3 100%);
 }
 
 .loginbox{
@@ -30,7 +31,6 @@ body {
     box-sizing: border-box;
 }
 .from-group{
-    /* position: relative; */
     display:flex;
     display: -webkit-box; 
     display: -moz-box; 
@@ -45,10 +45,17 @@ body {
 
  .from-group .from-icon{
     display: inline-block;
-    border: .01rem solid #ffffff;
+    border: 1px solid #ffffff;
     width: 80%;    
     border-radius: .1rem;
     height:.8rem;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    flex-wrap:nowrap;
 }
 
 .from-group .from-icon img{
@@ -56,10 +63,18 @@ body {
     height:.3rem;
     width: .3rem;
     vertical-align: middle;
+    padding-top: .24rem;
 }
  .from-group .from-tit{
     display: inline-block;
     width: 20%;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    flex-wrap:nowrap;
     font-size: .3rem;
     color: #ffffff;
     padding-left: .1rem;
@@ -68,19 +83,179 @@ body {
  
 .from-group input{
     padding-left:.1rem;
-    font-size: .2rem;
+    font-size: .3rem;
     width: 85%; 
     height:.8rem;
+	color: #ffffff;
 }
  .info.mistake {
     color: red;
+	font-size: .3rem;
 }
 
-.info {
+.info{
     height: .5rem;
-    text-align: center;
-    width: 80%;
     line-height: .5rem;
+    padding-left: 2rem;
+}
+
+ .btn{
+    margin-top:.4rem;
+    width: 100%;
+    height: .8rem;
+    color: #1153f3;
+    border: 0;
+    font-size: .3rem;
+    border-radius: .2rem;
+}
+.dis{
+    background: -moz-linear-gradient(left, #b0b0b0 0%, #95c5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b0b0b0), color-stop(100%, #95c5d6));
+    background: -webkit-linear-gradient(left, #b0b0b0 0%, #95c5d6 100%);
+    background: -o-linear-gradient(left, #b0b0b0 0%, #95c5d6 100%);
+    background: -ms-linear-gradient(left, #b0b0b0 0%, #95c5d6 100%);
+}
+ .active{
+    background: -moz-linear-gradient(left, #1de5e2 0%, #1153fc 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1de5e2), color-stop(100%, #1153fc));
+    background: -webkit-linear-gradient(left, #1de5e2 0%, #1153fc 100%);
+    background: -o-linear-gradient(left, #1de5e2 0%, #1153fc 100%);
+    background: -ms-linear-gradient(left, #1de5e2 0%, #1153fc 100%);
+ }
+
+   .pptt::-webkit-input-placeholder { /* WebKit browsers */
+    color:#b8c9cf
+}
+
+.pptt:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#b8c9cf
+}
+
+.pptt::-moz-placeholder { /* Mozilla Firefox 19+ */
+color:#b8c9cf
+}
+
+.pptt:-ms-input-placeholder { /* Internet Explorer 10+ */
+color: #b8c9cf
+}
+
+.login-new{
+    display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    padding-top:.3rem;
+}
+.login-new a{
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: .625rem;
+    color: #fff;
+    height: .5rem;
+    line-height: .5rem;
+    text-align: center;
+    width: 2rem;
+}/* 
+登录样式表
+*/
+body {
+    background: -moz-linear-gradient(top, #2866a3 0%, #5ebfc8 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2866a3), color-stop(100%, #5ebfc8));
+    background: -webkit-linear-gradient(top, #2866a3 0%, #5ebfc8 100%);
+    background: -o-linear-gradient(top, #2866a3 0%, #5ebfc8 100%);
+    background: -ms-linear-gradient(top, #2866a3 0%, #5ebfc8 100%);
+}
+
+.header-zp{
+    /* background-color: transparent; */
+	background: -moz-linear-gradient(top, #2866a3 0%, #2866a3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2866a3), color-stop(100%, #2866a3));
+	background: -webkit-linear-gradient(top, #2866a3 0%, #2866a3 100%);
+	background: -o-linear-gradient(top, #2866a3 0%, #2866a3 100%);
+	background: -ms-linear-gradient(top, #2866a3 0%, #2866a3 100%);
+}
+
+.loginbox{
+    width: 100%;
+    position: relative;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.login-new-page{
+    padding:.3rem .3rem .3rem .3rem;
+    padding-top: .88rem;
+    box-sizing: border-box;
+}
+.from-group{
+    display:flex;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    border-radius: .2rem;
+    height: .8rem;
+    line-height: .8rem;
+    background-color: transparent;
+ }
+
+ .from-group .from-icon{
+    display: inline-block;
+    border: 1px solid #ffffff;
+    width: 80%;    
+    border-radius: .1rem;
+    height:.8rem;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    flex-wrap:nowrap;
+}
+
+.from-group .from-icon img{
+    padding-left: .3rem;
+    height:.3rem;
+    width: .3rem;
+    vertical-align: middle;
+    padding-top: .24rem;
+}
+ .from-group .from-tit{
+    display: inline-block;
+    width: 20%;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    flex-wrap:nowrap;
+    font-size: .3rem;
+    color: #ffffff;
+    padding-left: .1rem;
+}
+  
+ 
+.from-group input{
+    padding-left:.1rem;
+    font-size: .3rem;
+    width: 85%; 
+    height:.8rem;
+	color: #ffffff;
+}
+ .info.mistake {
+    color: red;
+	font-size: .3rem;
+}
+
+.info{
+    height: .5rem;
+    line-height: .5rem;
+    padding-left: 2rem;
 }
 
  .btn{
