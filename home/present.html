@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<title>提币</title>
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<link rel="stylesheet" href="../css/public/reset.css"/>
-		<link rel="stylesheet" href="../css/public/bottomNav.css"/>
-		<link rel="stylesheet" href="../css/public/base.css"/>
-		<link rel="stylesheet" href="../css/home/subpage/present.css"/>
-		
+		<script src="../js/public/rem.js"></script>
+		<link rel="stylesheet" href="../css/public/reset.css" />
+		<link rel="stylesheet" href="../css/public/base.css" />
+		<link rel="stylesheet" href="../css/home/present.css" />
+
 	</head>
+
 	<body>
 		<!-- 最大的外套 -->
 		<div class="currency_wrap">
 			<!-- 头部-s -->
 			<div class="header-zp">
-			    <span class="return" onclick="returnFun()"><img src="../image/public/return-zp@2x.png" /></span>
-			    <h3>提币</h3>
+				<span class="return" onclick="returnFun()"><img src="../image/public/return-zp@2x.png" /></span>
+				<h3>提币</h3>
 			</div>
 			<!-- 头部-e -->
 			<!-- 固定导航-s -->
@@ -49,7 +51,7 @@
 						66
 					</div>
 					<!-- 提取按钮 -->
-					<div class="currency_btn" onclick="send(_id,state)">
+					<div class="currency_btn" onclick="send('_id1')">
 						提取
 					</div>
 				</div>
@@ -67,7 +69,7 @@
 						66
 					</div>
 					<!-- 提取按钮 -->
-					<div class="currency_btn" onclick="send(_id,state)">
+					<div class="currency_btn" onclick="send('_id2')">
 						提取
 					</div>
 				</div>
@@ -84,13 +86,15 @@
 				</div>
 				<!-- 提取弹框-e -->
 			</div>
-			
+
 		</div>
-			<script src="../js/public/jquery-1.8.3.min.js"></script>
-			<script src="../js/public/base.js"></script>
-			<script>
-			function send(id, state) {
+		<script src="../js/public/jquery-1.8.3.min.js"></script>
+		<script src="../js/public/base.js"></script>
+		<script>
+			/*提取 按钮*/
+			function send(_id) {
 				$('.popover').show();
+				console.log(_id);
 			}
 			$(document).ready(function() {
 				//阻止事件冒泡
@@ -108,6 +112,8 @@
 					$(this).hide();
 				})
 			});
+			
 		</script>
 	</body>
+
 </html>

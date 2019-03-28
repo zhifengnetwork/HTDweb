@@ -66,7 +66,7 @@ th,td{
 	width: 85%;
 	height: 1.75rem;
 	border-radius: 10px;
-	letter-spacing:15px;
+	letter-spacing: 5px;
 	background: linear-gradient(left,#5581f1,#1153fc);
 	background: -webkit-linear-gradient(left,#5581f1,#1153fc);
 }
@@ -118,6 +118,7 @@ th,td{
 	position: absolute;
 	top: 15%;
 	left: 5%;
+	z-index: 5;
 	width: 90%;
 	height: 9.5rem;
 	background: linear-gradient(#1de5e2,#b588f7);
@@ -141,6 +142,7 @@ th,td{
 	position: absolute;
 	top: 15%;
 	left: 5%;
+	z-index: 5;
 	width: 90%;
 	height: 9.5rem;
 	background: linear-gradient(#1de5e2,#b588f7);
@@ -201,3 +203,19 @@ th,td{
 	background: -webkit-linear-gradient(left,#ffcb52,#ff7b02);
 }
 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+/*弹框-阴影*/
+.shadow {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+}
